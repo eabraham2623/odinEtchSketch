@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    flex: 1;
+}
+
+
+.square {
+   
+    background-color: red;
+    border: 1px black solid;
+    margin: 1px;
+    aspect-ratio: 1;
+
+}
