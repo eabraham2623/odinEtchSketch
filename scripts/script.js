@@ -14,6 +14,7 @@ function addHoverEventListener(hoverObject)
 }
 
 // number of squares in grid changes when range slider adjusted
+// range represents slider html element
 function addRangeEventListener(rangeObject)
 {
     rangeObject.addEventListener('input', function(event) {
