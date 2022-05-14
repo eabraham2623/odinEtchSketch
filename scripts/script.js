@@ -4,6 +4,28 @@ let  gridFragment = document.createDocumentFragment();
 
 let squareSize = 16;
 
+function addHoverEventListener(hoverObject)
+{
+    hoverObject.addEventListener('mouseover', function(event) {
+        changeColor(hoverObject);
+    });
+}
+
+function changeColor(square)
+{
+    let currentSquareColor = square.style.backgroundColor;
+    console.log(currentSquareColor);
+
+    if (currentSquareColor == "red")
+    {
+        square.style.backgroundColor = "blue";
+    }
+    else
+    {
+        square.style.backgroundColor = "red"
+    }
+}
+
 function squareNum(num)
 {
     return num * num;
@@ -19,6 +41,9 @@ function createGridOfSquares(squareSize)
         let square = document.createElement('div');
         square.innerText = i + 1;
         square.classList.add('square');
+        square.style.backgroundColor = "red";
+        addHoverEventListener(square);
+
         gridFragment.appendChild(square);
     }
     console.log(squareSize)
