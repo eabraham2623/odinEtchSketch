@@ -39,7 +39,6 @@ function createGridOfSquares(squareSize)
     for (let i = 0; i < gridSquareSize; i++)
     {
         let square = document.createElement('div');
-        square.innerText = i + 1;
         square.classList.add('square');
         square.style.backgroundColor = "red";
         addHoverEventListener(square);
@@ -50,4 +49,21 @@ function createGridOfSquares(squareSize)
     gridContainer.appendChild(gridFragment);
 }
 
+function changeGridOfSquares(squareSize)
+{
+    while(gridContainer.firstChild)
+    {
+        gridContainer.removeChild(gridContainer.lastChild);
+    }
+    createGridOfSquares(squareSize);
+}
+
+function promptForNewGrid()
+{
+    
+    changeGridOfSquares(newSquareSize);
+}
+
+
 createGridOfSquares(16);
+

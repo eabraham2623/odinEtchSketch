@@ -12,7 +12,8 @@
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     flex: 1;
-    max-width: 600px;
+    max-width: 700px;
+    min-width: 700px;
 }
 
 
