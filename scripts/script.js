@@ -25,7 +25,6 @@ function addRangeEventListener(rangeObject)
 function changeColor(square)
 {
     let currentSquareColor = square.style.backgroundColor;
-    console.log(currentSquareColor);
 
     if (currentSquareColor == firstColor)
     {
