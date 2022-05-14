@@ -5,8 +5,7 @@ const firstColor = "rgb(36, 123, 160)";
 const secondColor = "rgb(112, 193, 179)";
 let  gridFragment = document.createDocumentFragment();
 
-let squareSize = 16;
-
+// square color changes when mouse hovers over
 function addHoverEventListener(hoverObject)
 {
     hoverObject.addEventListener('mouseover', function(event) {
@@ -14,6 +13,7 @@ function addHoverEventListener(hoverObject)
     });
 }
 
+// number of squares in grid changes when range slider adjusted
 function addRangeEventListener(rangeObject)
 {
     rangeObject.addEventListener('input', function(event) {
@@ -44,6 +44,8 @@ function squareNum(num)
 function createGridOfSquares(squareSize)
 {
     let gridSquareSize = squareNum(squareSize);
+    // set string representation of css style
+    // 1fr per square
     let gridSquareCSSSize = `repeat(${squareSize}, 1fr)`;
     gridContainer.style.gridTemplateColumns = gridSquareCSSSize;
     for (let i = 0; i < gridSquareSize; i++)
@@ -52,13 +54,14 @@ function createGridOfSquares(squareSize)
         square.classList.add('square');
         square.style.backgroundColor = firstColor;
         addHoverEventListener(square);
-
+        // Document fragment used to construct square grid
         gridFragment.appendChild(square);
     }
-    console.log(squareSize)
+    // fragment appended to main grid container
     gridContainer.appendChild(gridFragment);
 }
 
+// removes existing grid of squares and replaces it with new grid size
 function changeGridOfSquares(squareSize)
 {
     while(gridContainer.firstChild)
@@ -68,11 +71,7 @@ function changeGridOfSquares(squareSize)
     createGridOfSquares(squareSize);
 }
 
-function promptForNewGrid()
-{
-    
-    changeGridOfSquares(newSquareSize);
-}
-
+// MAIN
+// create default grid of 16x16
 createGridOfSquares(16);
 addRangeEventListener(rangeSlider);
