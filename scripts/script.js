@@ -1,5 +1,8 @@
 const container = document.querySelector('.main-container');
 const gridContainer = document.querySelector('.grid-container');
+const rangeSlider = document.querySelector('.rangeSlider');
+const firstColor = "rgb(36, 123, 160)";
+const secondColor = "rgb(112, 193, 179)";
 let  gridFragment = document.createDocumentFragment();
 
 let squareSize = 16;
@@ -11,18 +14,25 @@ function addHoverEventListener(hoverObject)
     });
 }
 
+function addRangeEventListener(rangeObject)
+{
+    rangeObject.addEventListener('input', function(event) {
+        changeGridOfSquares(rangeObject.value);
+    });
+}
+
 function changeColor(square)
 {
     let currentSquareColor = square.style.backgroundColor;
     console.log(currentSquareColor);
 
-    if (currentSquareColor == "red")
+    if (currentSquareColor == firstColor)
     {
-        square.style.backgroundColor = "blue";
+        square.style.backgroundColor = secondColor;
     }
     else
     {
-        square.style.backgroundColor = "red"
+        square.style.backgroundColor = firstColor;
     }
 }
 
@@ -40,7 +50,7 @@ function createGridOfSquares(squareSize)
     {
         let square = document.createElement('div');
         square.classList.add('square');
-        square.style.backgroundColor = "red";
+        square.style.backgroundColor = firstColor;
         addHoverEventListener(square);
 
         gridFragment.appendChild(square);
@@ -64,6 +74,5 @@ function promptForNewGrid()
     changeGridOfSquares(newSquareSize);
 }
 
-
 createGridOfSquares(16);
-
+addRangeEventListener(rangeSlider);

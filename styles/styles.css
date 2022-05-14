@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+h1 {
+    font-family:  Roboto, sans-serif;
+}
+
 .main-container {
     display: flex;
     justify-content: center;
@@ -16,11 +20,15 @@
     min-width: 700px;
 }
 
+.grid-border {
+    padding: 2px;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    
+}
 
 .square {
    
     background-color: red;
-    border: 1px black solid;
     margin: 1px;
     aspect-ratio: 1;
 
